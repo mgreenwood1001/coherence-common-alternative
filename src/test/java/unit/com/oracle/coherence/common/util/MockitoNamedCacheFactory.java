@@ -10,7 +10,9 @@ import com.tangosol.net.CacheFactoryBuilder;
 import com.tangosol.net.ConfigurableCacheFactory;
 import com.tangosol.net.NamedCache;
 import com.tangosol.net.Service;
+import com.tangosol.net.events.InterceptorRegistry;
 import com.tangosol.run.xml.XmlElement;
+import com.tangosol.util.ResourceRegistry;
 
 /**
  * This is a utility class derived from an Easymock variant of this class in main Coherence.
@@ -50,6 +52,16 @@ public class MockitoNamedCacheFactory implements ConfigurableCacheFactory
     }
 
 
+    @Override
+    public void activate() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -88,6 +100,16 @@ public class MockitoNamedCacheFactory implements ConfigurableCacheFactory
     public Service ensureService(String sServiceName)
     {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public InterceptorRegistry getInterceptorRegistry() {
+        return null;
+    }
+
+    @Override
+    public ResourceRegistry getResourceRegistry() {
+        return null;
     }
 
 
@@ -136,6 +158,11 @@ public class MockitoNamedCacheFactory implements ConfigurableCacheFactory
                                           ClassLoader loader,
                                           XmlElement xmlConfig)
         {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public ConfigurableCacheFactory setConfigurableCacheFactory(ConfigurableCacheFactory configurableCacheFactory, String s, ClassLoader classLoader, boolean b) {
             throw new UnsupportedOperationException();
         }
 

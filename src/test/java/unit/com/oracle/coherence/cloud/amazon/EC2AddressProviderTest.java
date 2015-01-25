@@ -288,6 +288,5 @@ public class EC2AddressProviderTest
 
         assertTrue(credentials.getAWSAccessKeyId().equals("properties-accesskey"));
         assertTrue(credentials.getAWSSecretKey().equals("properties-secretkey"));
-
     }
 }

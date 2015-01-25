@@ -1,12 +1,12 @@
 package com.oracle.coherence.common.util;
 
 /**
- * <p>A {@link DefaultMockInterfaceImplementation} of the {@link MockInterface}.
+ * <p>A {@link DefaultMockInterfaceImplementation} of the {@link com.oracle.coherence.common.util.MockInterface}.
  * Used for unit testing of {@link ObjectProxyFactory}. </p>
  *
  * @author Christer Fahlgren
  */
-public class DefaultMockInterfaceImplementation implements MockInterface
+public class DefaultMockInterfaceImplementation implements com.oracle.coherence.common.util.MockInterface
 {
 
     /**
