@@ -21,19 +21,15 @@
  */
 package com.oracle.coherence.common.events.backingmap;
 
-import java.util.Map;
-import java.util.Map.Entry;
-
 import com.tangosol.coherence.reporter.extractor.KeyExtractor;
 import com.tangosol.io.Serializer;
 import com.tangosol.net.BackingMapContext;
 import com.tangosol.net.BackingMapManagerContext;
-import com.tangosol.util.Binary;
-import com.tangosol.util.BinaryEntry;
-import com.tangosol.util.ObservableMap;
-import com.tangosol.util.ValueExtractor;
-import com.tangosol.util.ValueUpdater;
+import com.tangosol.util.*;
 import com.tangosol.util.extractor.EntryExtractor;
+
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * <p>A base implementation for {@link BackingMapEntryEvent}s.</p>
@@ -204,6 +200,16 @@ public abstract class AbstractBackingMapEntryEvent implements BackingMapEntryEve
             {
                 this.binaryValue = Binary.NO_BINARY;    //Binary.NO_BINARY indicates not yet serialized
                 this.deserializedValue = value;
+            }
+        }
+
+
+        @Override
+        public void updateBinaryValue(Binary binary, boolean fSynthetic) {
+            if (null != binary) {
+                setValue(getContext().getValueFromInternalConverter().convert(binary));
+            } else {
+                remove(false);
             }
         }
 

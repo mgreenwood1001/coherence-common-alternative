@@ -21,23 +21,17 @@
  */
 package com.oracle.coherence.common.util;
 
-import java.io.IOException;
-
 import com.tangosol.io.DefaultSerializer;
 import com.tangosol.io.Serializer;
 import com.tangosol.net.BackingMapContext;
 import com.tangosol.net.BackingMapManagerContext;
-import com.tangosol.util.Base;
-import com.tangosol.util.Binary;
-import com.tangosol.util.BinaryEntry;
-import com.tangosol.util.BinaryWriteBuffer;
-import com.tangosol.util.ObservableMap;
-import com.tangosol.util.ValueExtractor;
-import com.tangosol.util.ValueUpdater;
+import com.tangosol.util.*;
 import com.tangosol.util.extractor.AbstractUpdater;
 import com.tangosol.util.extractor.EntryExtractor;
 import com.tangosol.util.extractor.IdentityExtractor;
 import com.tangosol.util.extractor.KeyExtractor;
+
+import java.io.IOException;
 
 /**
  * A {@link SimpleBinaryEntry} is an implementation of {@link BinaryEntry}, mainly for the purposes of testing
@@ -404,6 +398,15 @@ public class SimpleBinaryEntry implements BinaryEntry
     public void updateBinaryValue(Binary binaryValue)
     {
         this.binaryValue = binaryValue;
+    }
+
+    @Override
+    public void updateBinaryValue(Binary binary, boolean b) {
+        if (null != binary) {
+            setValue(getContext().getValueFromInternalConverter().convert(binary));
+        } else {
+            remove(false);
+        }
     }
 
 
