@@ -2,7 +2,7 @@
 
 This is a fork of Oracle Coherence's coherence-common version 2.1.2.31472 which is part of The Coherence Incubator (Release 10). See  http://coherence.oracle.com/display/INC10/coherence-common for more details. This repository is not endorsed by Oracle. It is only a way for users of Coherence to experiment and extend the work done by Oracle to suggest possible evolutions of the Incubator base code.
 
-This version upgrades the coherence.jar from 3.7.1 to 12.1.2 which caused very a few classes to change signatures and dependencies on this implementation.
+This version upgrades the coherence.jar from 3.7.1 to 12.1.2 which caused a few classes to change signatures and dependencies on this implementation.
 Added an EC2TaggedAddressProvider that allows for using IAM credentials on EC2 instances for authentication rather than using AWS keys directly.  Also
 allows for the usage of tags on the instances as well as determines the state of the instance and disallows down/going down nodes from joining the cluster.
 
@@ -10,11 +10,20 @@ allows for the usage of tags on the instances as well as determines the state of
 ## Install
 
    Add coherence.jar into a local nexus repo with group-id=com.oracle, artifact-id=coherence, version=12.1.2
-   then run the following commands:
+
+```
+mvn install:install-file -Dfile=./coherence-12.1.2.jar -DgroupId=com.oracle \
+    -DartifactId=coherence -Dversion=12.1.2 -Dpackaging=jar
+```
+
+then run the following commands:
    
-    git clone git://github.com/mgreenwood1001/coherence-common-alternative.git
-    cd coherence-common-alternative
-    mvn clean install
+```
+git clone git://github.com/mgreenwood1001/coherence-common-alternative.git
+cd coherence-common-alternative
+mvn clean install
+```
+    
     
    Use the jar file inside the target directory as a dependency of your project.
 
