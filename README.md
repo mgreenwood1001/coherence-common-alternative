@@ -66,12 +66,10 @@ to determine instance state & tags:
                   "Effect": "Allow",
                   "Action": [
                     "cloudformation:DescribeStackResource",
-                    "ec2:CreateTags",
                     "ec2:DescribeTags",
                     "ec2:DescribeAddresses",
                     "ec2:DescribeInstances",
                     "ec2:DescribeNetworkInterfaces",
-                    "ec2:DescribeVolumes",
                   ],
                   "Resource": "*"
                 }
