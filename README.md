@@ -33,7 +33,9 @@ mvn clean install
 
    Added in-process Runtime from JK that can be used for testing. See http://thegridman.com/coherence/coherence-incubator-commons-runtime-package/ for more info.
    
-### com.oracle.coherence.cloud.amazon.EC2TaggedAddressProvider
+### Address Providers
+
+#### EC2TaggedAddressProvider
 
 This address provider uses IAM credentials, or security keys for accessing the AWS SDK (version 1.9.16).  Specify -Dtangosol.coherence.ec2.use.iam=true
 in order to use the IAM roles assigned to the node in order to access the EC2 instance tags and region attributes.
